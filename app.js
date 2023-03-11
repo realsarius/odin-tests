@@ -1,4 +1,5 @@
-const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const capitalize = (string) =>
+  Promise.resolve(string.charAt(0).toUpperCase() + string.slice(1));
 
 // const reverseString = (string, reversedString = '') => {
 //   for (let i = string.length - 1; i >= 0; i -= 1) {
@@ -8,28 +9,26 @@ const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 // };
 
 const reverseString = (string, num = string.length, tempString = '') => {
-  if (num < 0) return tempString;
+  if (num < 0) return Promise.resolve(tempString);
   tempString += string.charAt(num);
   return reverseString(string, num - 1, tempString);
 };
 
-console.log(reverseString('berkan'));
-
 const calculator = {
   add(x, y) {
-    return x + y;
+    return Promise.resolve(x + y);
   },
 
   subtract(x, y) {
-    return x - y;
+    return Promise.resolve(x - y);
   },
 
   multiply(x, y) {
-    return x * y;
+    return Promise.resolve(x * y);
   },
 
   divide(x, y) {
-    return !(y > 0) ? null : x / y;
+    return !(y > 0) ? null : Promise.resolve(x / y);
   },
 };
 
@@ -45,7 +44,7 @@ const analyzeArray = {
     arr.forEach((num) => {
       sum += num;
     });
-    return Math.floor(sum / arr.length);
+    return Promise.resolve(Math.floor(sum / arr.length));
   },
 
   min(arr) {
@@ -53,7 +52,7 @@ const analyzeArray = {
     arr.forEach((num) => {
       if (num < min) min = num;
     });
-    return min;
+    return Promise.resolve(min);
   },
 
   max(arr) {
@@ -61,11 +60,11 @@ const analyzeArray = {
     arr.forEach((num) => {
       if (num > max) max = num;
     });
-    return max;
+    return Promise.resolve(max);
   },
 
   length(arr) {
-    return arr.length;
+    return Promise.resolve(arr.length);
   },
 };
 
