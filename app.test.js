@@ -4,10 +4,10 @@ const app = require('./app');
 //   expect(app.reverseString('elizabeth')).toBe('htebazile');
 // });
 
-test('ASDreversed the string: elizabeth', () => {
+test('Reversed the string: elizabeth', () => {
   app
     .reverseString('elizabeth')
-    .then((result) => expect(result).toBe('htebazile'));
+    .then((result) => expect(result).toEqual('htebazile'));
 });
 
 test('capitalize the first letter function: nolan', () => {

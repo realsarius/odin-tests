@@ -8,11 +8,8 @@ const capitalize = (string) =>
 //   return reversedString;
 // };
 
-const reverseString = (string, num = string.length, tempString = '') => {
-  if (num < 0) return Promise.resolve(tempString);
-  tempString += string.charAt(num);
-  return reverseString(string, num - 1, tempString);
-};
+const reverseString = (string) =>
+  Promise.resolve(string.split('').reverse().join(''));
 
 const calculator = {
   add(x, y) {
